@@ -1,14 +1,56 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&display=swap" rel="stylesheet">
+  <title>Unreachable Objects</title>
+  <style>
+    body {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      line-height: 1.6em;
+      padding: 20px;
+    }
+
+    h2 {
+      font-family: 'Cousine', monospace;
+      color: fuchsia;
+      font-weight: 700;
+      margin-top: 36px;
+    }
+
+    #logo {
+      font-family: 'Cousine', monospace;
+      font-size: 30px;
+      font-weight: 400;
+      border: 1px solid fuchsia;
+      padding: 2px;
+    }
+
+    #tag-line {
+      font-family: 'Cousine', monospace;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 0.0em;
+    }
+  </style>
   <script src="https://d3js.org/d3.v5.min.js"></script>
-  <!-- <script src="../d3_5/d3.min.js"></script> -->
 </head>
 
 <body>
+  <header>
+    <div><span id="logo">Unreachable Objects</span></p>
+    <div id="tag-line">A workbook</div>
+  </header>
   
-  <h1>Sliding Number Puzzle</h1>
-  <p>Click on a number next to the empty space to sort.</p>
-
+  <div>
+    <h2>Sliding Number Puzzle</h2>
+    <p>Click on a number next to the empty space to sort.</p>
+  </div>
+  
   <div id="grid"></div>
 
   <p id="current_sort"></p>
