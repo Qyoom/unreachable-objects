@@ -1,27 +1,84 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  line-height: 1.6em;
-  padding: 20px;
 }
 
-h2 {
-  font-family: 'Cousine', monospace;
-  color: fuchsia;
-  font-weight: 700;
-  margin-top: 36px;
+html {
+  font-size: 62.5%;
 }
 
-#logo {
+.flex-container {
+  /* background-color: #e7e7e7; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  background-color: #f4f4f4;
+  text-align: center;
+  padding: 1rem;
+}
+
+.logo h3 {
   font-family: 'Cousine', monospace;
-  font-size: 30px;
+  display: inline;
+  color: #111;
+  background-color: #ffffff;
   font-weight: 400;
+  font-size: 3rem;
   border: 1px solid fuchsia;
-  padding: 2px;
+  padding-bottom: 0.2rem;
+  padding-right: 1rem;
 }
 
-#tag-line {
+.logo p {
   font-family: 'Cousine', monospace;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 400;
-  line-height: 0.0em;
+  line-height: 2.2rem;
+}
+
+a {
+  font-family: 'Cousine', monospace;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #111;
+  background-color: #ececec;
+  text-decoration: none;
+  border: fuchsia solid 1px;
+  padding-bottom: 0.5rem;
+  padding-right: 1rem;
+}
+
+a:hover {
+  color: #ffffff;
+  background-color: #333;
+}
+
+a:active {
+  color: fuchsia;
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+/* Responsive media queries */
+@media only screen and (max-width: 700px) {
+  .flex-container {
+    flex-direction: column;
+  }
 }
