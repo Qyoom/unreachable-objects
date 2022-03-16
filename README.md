@@ -1,2 +1,2 @@
 # Unreachable Objects
-A workbook
+A generative, algorithmic workbook
