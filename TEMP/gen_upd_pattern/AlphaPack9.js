@@ -72,8 +72,8 @@ function update(data) {
         .style("fill-opacity", 1e-6);
      
     enterNode.append("text")
-        .attr("dx", -14)
-        .attr("dy", ".25em")
+        .attr("dx", -8)
+        .attr("dy", ".50rem")
         .text(function(d) {
             return d.id === "charContainer" ? "" : d.id;
         });   

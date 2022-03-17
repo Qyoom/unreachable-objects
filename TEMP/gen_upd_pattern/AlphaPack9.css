@@ -1,5 +1,6 @@
 text {
-    font: bold 48px monospace;
+    font-family: 'Courier New', Courier, monospace;
+    font: bold 2.5rem monospace;
     fill: white;
 }
 
