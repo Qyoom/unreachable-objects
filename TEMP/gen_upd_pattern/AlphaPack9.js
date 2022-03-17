@@ -74,7 +74,9 @@ function update(data) {
     enterNode.append("text")
         .attr("dx", -14)
         .attr("dy", ".25em")
-        .text(function(d) { return d.id; });   
+        .text(function(d) {
+            return d.id === "charContainer" ? "" : d.id;
+        });   
 
     node.transition().duration(750)
         .attr("transform", function(d) {
