@@ -6,15 +6,34 @@ var data = {
 
 var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
-var diameter = 600;
+// var diameter = 600;
+var headerHeight = 76;
+var divWidth = parseInt(d3.select('.visualization').style('width'), 10)
+var innerWidth = window.innerWidth;
+var innerHeight = window.innerHeight;
+var clientWidth = window.document.documentElement.clientWidth;
+var clientHeight = window.document.documentElement.clientHeight;
+var svgSize = innerWidth <= innerHeight ? innerWidth - headerHeight : innerHeight - headerHeight;
+var exitDistance = svgSize * 0.83;
+
+// Diagnostic (responsify)
+console.log(`divWidth: ${divWidth}`);
+console.log(`innerWidth: ${innerWidth}`);
+console.log(`innerHeight: ${innerHeight}`);
+console.log(`clientWidth: ${clientWidth}`);
+console.log(`clientHeight: ${clientHeight}`);
+console.log(`svgSize: ${svgSize}`);
 
 var svg = d3.select(".showcase").append("svg")
-    .attr("width", diameter)
-    .attr("height", diameter)
+    // .attr("width", diameter)
+    // .attr("height", diameter)
+    .attr("width", svgSize)
+    .attr("height", svgSize)
     .append("g");
 
 var alphaBubble = d3.layout.pack()
-    .size([diameter - 50, diameter - 50])
+    // .size([diameter - 50, diameter - 50])
+    .size([svgSize - 50, svgSize - 50])
     .padding(5);
 
 function update(data) {
@@ -36,7 +55,7 @@ function update(data) {
     // UPDATE
     node.selectAll("circle")
         .attr("class", function(d, i) {
-        console.log("UPDATE, d.id: " + d.id)
+        // console.log("UPDATE, d.id: " + d.id)
         var result = d.id === "charContainer" ? "container" : "update";
             return result;
     });
@@ -78,7 +97,8 @@ function update(data) {
       .transition()
         .duration(750)
         .attr("transform", function(d) {
-            return "translate(" + (+500) + ", " + (+500) + ")";
+            // return "translate(" + (+500) + ", " + (+500) + ")";
+            return "translate(" + (+exitDistance) + ", " + (+exitDistance) + ")";
         })
         .remove();;
 
