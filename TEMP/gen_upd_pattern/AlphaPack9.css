@@ -22,7 +22,7 @@ text {
     stroke-width: 1;
 }
 
-.showcase {
+.visualization {
     display: flex;
     flex-direction: row;     
     justify-content: center;

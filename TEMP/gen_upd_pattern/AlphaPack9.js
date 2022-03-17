@@ -24,7 +24,7 @@ console.log(`clientWidth: ${clientWidth}`);
 console.log(`clientHeight: ${clientHeight}`);
 console.log(`svgSize: ${svgSize}`);
 
-var svg = d3.select(".showcase").append("svg")
+var svg = d3.select("#alpha-pack-9").append("svg")
     // .attr("width", diameter)
     // .attr("height", diameter)
     .attr("width", svgSize)
