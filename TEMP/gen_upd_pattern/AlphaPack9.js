@@ -73,7 +73,7 @@ function update(data) {
      
     enterNode.append("text")
         .attr("dx", -8)
-        .attr("dy", ".50rem")
+        .attr("dy", "0.5rem")
         .text(function(d) {
             return d.id === "charContainer" ? "" : d.id;
         });   

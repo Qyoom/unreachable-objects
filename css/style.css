@@ -59,7 +59,7 @@ html {
   line-height: 2.2rem;
 }
 
-a {
+.nav a {
   font-family: 'Cousine', monospace;
   font-size: 1.4rem;
   font-weight: 400;
@@ -71,12 +71,17 @@ a {
   padding-right: 1rem;
 }
 
-a:hover {
+.nav a:hover {
   color: #ffffff;
   background-color: #333;
 }
 
-a:active {
+.nav a.current {
+  color: #ffffff;
+  background-color: #999;
+}
+
+.nav a:active {
   color: fuchsia;
 }
 
@@ -86,12 +91,23 @@ a:active {
 
 /* Showcase */
 
-.verbiage h2 {
+.verbiage h2, .verbiage h3 {
   font-family: 'Cousine', monospace;
-  font-size: 2.5rem;
+  /* font-size: 2.5rem; */
   font-weight: 700;
-  color: fuchsia;
+  /* color: fuchsia; */
   text-align: left;
+  padding: 1rem 0;
+}
+
+.verbiage h2 {
+  color: fuchsia;
+  font-size: 2.5rem;
+}
+
+.verbiage h3 {
+  color: #333;
+  font-size: 2rem;
 }
 
 .verbiage p {
@@ -107,6 +123,10 @@ a:active {
 .verbiage {
   padding: 0 20%;
   margin-bottom: 2rem;
+}
+
+.verbiage p {
+  padding: 1rem 0;
 }
 
 /* Responsive media queries */
