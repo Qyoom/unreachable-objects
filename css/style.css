@@ -16,6 +16,10 @@ html {
   font-size: 62.5%;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Navbar */
 
 .navbar {
@@ -91,6 +95,16 @@ html {
 
 /* Showcase */
 
+.verbiage {
+  padding: 0 20%;
+  margin-bottom: 2rem;
+}
+
+.verbiage p {
+  font-size: 1.4rem;
+  padding: 1rem 0;
+}
+
 .verbiage h2, .verbiage h3 {
   font-family: 'Cousine', monospace;
   /* font-size: 2.5rem; */
@@ -105,28 +119,20 @@ html {
   font-size: 2.5rem;
 }
 
-.verbiage h3 {
+.verbiage h3, .verbiage h3 a {
   color: #333;
   font-size: 2rem;
 }
 
-.verbiage p {
-  font-size: 1.4rem;
+.verbiage h3 a:hover {
+  color: fuchsia;
+  border: 1px solid #333;
 }
 
 .visualization {
   display: flex;
   flex-direction: column;
   align-items: center;  
-}
-
-.verbiage {
-  padding: 0 20%;
-  margin-bottom: 2rem;
-}
-
-.verbiage p {
-  padding: 1rem 0;
 }
 
 /* Responsive media queries */
