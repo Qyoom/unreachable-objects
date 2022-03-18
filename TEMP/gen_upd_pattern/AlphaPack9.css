@@ -22,10 +22,3 @@ text {
     stroke-width: 1;
 }
 
-.visualization {
-    display: flex;
-    flex-direction: row;     
-    justify-content: center;
-    align-items: center;
-    /* margin-top: 72px; */
-}
