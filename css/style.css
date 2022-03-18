@@ -86,24 +86,27 @@ a:active {
 
 /* Showcase */
 
-.showcase h2 {
+.verbiage h2 {
   font-family: 'Cousine', monospace;
   font-size: 2.5rem;
   font-weight: 700;
   color: fuchsia;
-  text-align: center;
+  text-align: left;
+}
+
+.verbiage p {
+  font-size: 1.4rem;
 }
 
 .visualization {
   display: flex;
   flex-direction: column;
   align-items: center;  
-  /* justify-content: center; */
-  /* margin-top: 72px; */
 }
 
 .verbiage {
-  padding: 0 1.5rem;
+  padding: 0 20%;
+  margin-bottom: 2rem;
 }
 
 /* Responsive media queries */
@@ -111,5 +114,9 @@ a:active {
 @media only screen and (max-width: 700px) {
   .flex-container {
     flex-direction: column;
+  }
+
+  .verbiage {
+    padding: 0 5%;
   }
 }
