@@ -44,7 +44,7 @@ a {
   padding: 1rem;
 }
 
-.logo h1 {
+.logo h1 a {
   font-family: 'Cousine', monospace;
   display: inline;
   color: #111;
@@ -54,6 +54,11 @@ a {
   border: 1px solid fuchsia;
   padding-bottom: 0.2rem;
   padding-right: 1rem;
+}
+
+.logo h1 a:hover {
+  color: #ffffff;
+  background-color: #333;
 }
 
 .logo p {
