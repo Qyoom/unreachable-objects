@@ -17,11 +17,11 @@ var innerHeight = window.innerHeight;
 var data = new Array();
 var xpos = 1; //starting xpos and ypos at 1 so the stroke will show when we make the grid below
 var ypos = 1;
-// var cellSize = 100;
-var cellSize = innerWidth <= innerHeight ? Math.floor(innerWidth / 10) : Math.floor(innerHeight / 6)
-
-var numRows = 6;
-var numCols = 10;
+// var numRows = 6;
+// var numCols = 10;
+var numRows = 12;
+var numCols = 20;
+var cellSize = innerWidth <= innerHeight ? Math.floor(innerWidth / numCols) : Math.floor(innerHeight / numRows);
 
 // https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
 function getRandomInt(min, max) {
