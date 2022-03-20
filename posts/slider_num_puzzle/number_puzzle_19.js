@@ -10,7 +10,7 @@ var down, right = cellSize;
 var transitionDuration = 500;
 
 /*** SVG ***/
-var svg = d3.select("#grid")
+var svg = d3.select("#puzzle")
 	.append("svg")
 	.attr("width", (numCols * cellSize) + 2 + "px")
   .attr("height", (numRows * cellSize) + 2 + "px");
@@ -37,7 +37,7 @@ function updateGridData(gridData) {
   // update, data[0], rows
   var cells = svg.selectAll(".cell")
     .data(gridData, function(d) { 
-      //console.log(`${d.id}`);
+      console.log(`${d.id}`);
       return d.id })
     .join(
       // This function has a single parameter (by convention named enter) which is a selection of entering elements.
