@@ -18,7 +18,7 @@ var svg = d3.select("#puzzle")
 /*** DATA ***/
 
 // Generate 1-D data. This reference called just once per game. 
-// This 1-D array should be persistant as records the number sort throughout the game.
+// This 1-D array should be persistant as it records the number sort throughout the game.
 var numbers = cellNumbers();
 // Transforms data into 2-D array of dicts with added parameters. Called on each "play" (cell move).
 var gridData = generateGridData(numbers);
