@@ -41,14 +41,14 @@ function updateGridData(gridData) {
       return d.id })
     .join(
       // This function has a single parameter (by convention named enter) which is a selection of entering elements.
-      function(enter) { // on 1st pass enter contains all (five) rows (arrays), each with all (5) columns (arrays of dict per column).
+      function(enter) { // on 1st pass enter contains all (4) rows (arrays), each with all (4) columns (arrays of dict per column).
         console.log("join enter:");
         console.log(enter);
 
         return enter.append("g")
           .attr("class", function(d) { // At enter/append, d becomes the cell dicts.
             if(d.id != -1) {
-              return "number cell "
+              return "number cell"
             } else {
               return "space cell" // id -1
             }
