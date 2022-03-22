@@ -7,7 +7,7 @@ var data = {
 var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
 // var diameter = 600;
-var headerHeight = 76;
+var headerHeight = 76; // What's going on with this?
 var divWidth = parseInt(d3.select('.visualization').style('width'), 10)
 var innerWidth = window.innerWidth;
 var innerHeight = window.innerHeight;
@@ -55,10 +55,10 @@ function update(data) {
     // UPDATE
     node.selectAll("circle")
         .attr("class", function(d, i) {
-        // console.log("UPDATE, d.id: " + d.id)
-        var result = d.id === "charContainer" ? "container" : "update";
+            // console.log("UPDATE, d.id: " + d.id)
+            var result = d.id === "charContainer" ? "container" : "update";
             return result;
-    });
+        });
 
     // ENTER
     var enterNode = node.enter().append("g")
