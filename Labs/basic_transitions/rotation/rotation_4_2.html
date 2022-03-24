@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
+  <style>
+    svg {
+      background:green;
+    }
+
+    svg rect {
+      fill:purple
+    }
+  </style>
+  <title>Rotation 4.2</title>
+</head>
+<body>
+  <script>
+    // https://stackoverflow.com/questions/32410555/strange-rotation-of-rectangle-around-its-center-using-d3-js
+    
+    const squareSize = 200;
+    
+    const svg = d3.select("body")
+      .append("svg")
+        .attr("width", 400)
+        .attr("height", 400);
+
+    const rect = svg
+      .append("rect")
+        .attr("x", squareSize/2)
+        .attr("y", squareSize/2)
+        .attr("width", squareSize)
+        .attr("height", squareSize);
+
+    rect
+      .transition()
+        .duration(5000)
+        .attrTween("transform", rotTween);
+
+    function rotTween() {
+      const interp = d3.interpolate(0, 360);
+      return function(t) {
+        return `rotate(${interp(t)}, ${squareSize}, ${squareSize})`;
+      };
+    }
+  </script>
+</body>
+</html>
