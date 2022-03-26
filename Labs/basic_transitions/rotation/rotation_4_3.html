@@ -49,7 +49,6 @@
     function rotTween() {
       const interp = d3.interpolate(0, 360);
       return function(t) {
-        // return `rotate(${interp(t)}, ${squareSize}, ${squareSize})`;
         return `rotate(${interp(t)}, ${xCtrPos}, ${yCtrPos})`;
       };
     }
