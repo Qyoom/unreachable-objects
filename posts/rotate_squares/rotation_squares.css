@@ -9,3 +9,11 @@ svg rect {
   stroke: black;
   cursor: pointer;
 }
+
+div.control {
+  padding-bottom: 2rem;
+}
+
+div.control button {
+  border-radius: 0;
+}

@@ -68,7 +68,7 @@ a {
   line-height: 2.2rem;
 }
 
-.nav a {
+.nav a, div.control button {
   font-family: 'Cousine', monospace;
   font-size: 1.4rem;
   font-weight: 400;
@@ -135,6 +135,12 @@ a {
 }
 
 .visualization {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+}
+
+.control {
   display: flex;
   flex-direction: column;
   align-items: center;  
