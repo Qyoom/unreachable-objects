@@ -12,8 +12,8 @@ var transitionDuration = 500;
 /*** SVG ***/
 var svg = d3.select("#puzzle")
 	.append("svg")
-	.attr("width", (numCols * cellSize) + 2 + "px")
-  .attr("height", (numRows * cellSize) + 2 + "px");
+	  .attr("width", (numCols * cellSize) + 2 + "px")
+    .attr("height", (numRows * cellSize) + 2 + "px");
 
 /*** DATA ***/
 

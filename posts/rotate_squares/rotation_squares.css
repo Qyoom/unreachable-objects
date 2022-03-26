@@ -1,0 +1,11 @@
+svg {
+  background-color: blanchedalmond;
+}
+
+svg rect {
+  fill: red;
+  fill-opacity: 0%;
+  stroke-width: 4px;
+  stroke: black;
+  cursor: pointer;
+}
