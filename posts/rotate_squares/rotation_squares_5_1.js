@@ -1,4 +1,4 @@
-console.log("rotation_squares_5.js")
+console.log("rotation_squares_5_1.js")
 
 // Configuration
 const cellSize = 100;
@@ -63,38 +63,39 @@ let cells = svg.selectAll("rect")
           d3.select(this)
             .transition()
             .duration(5000)
-            .attrTween("transform", rotTween);
+            .attr("transform", function(d,i) {
+              console.log("In transform. d:");
+              console.log(d);
+              return `rotate(180, ${d.xCtrPos}, ${d.yCtrPos})`;
+            });
         }); // end on click
     } // end enter
   ) // end join
 
 // rotation function (closure)
-function rotTween(d) { // d is cellData
-  console.log("rotTween d:");
-  console.log(d);
-  const interp = d3.interpolate(0, 360);
-  return function(t) {
-    console.log("closure t:");
-    console.log(t);
-    return `rotate(${interp(t)}, ${d.xCtrPos}, ${d.yCtrPos})`;
-  };
-}
+// function rotTween(d) { // d is cellData
+//   console.log("rotTween d:");
+//   console.log(d);
+//   const interp = d3.interpolate(0, 360);
+//   return function(t) {
+//     console.log("closure t:");
+//     console.log(t);
+//     return `rotate(${interp(t)}, ${d.xCtrPos}, ${d.yCtrPos})`;
+//   };
+// }
 
-// NOT WORKING: Can't get this to have cascade delay effect
 function rollCascade() {
+  console.log("rollCascade TOP");
   cells
-  .each(function(d) {
-    console.log("<1>In each");
-    console.log(d);
-    console.log('this:');
-    console.log(this);
-    d3.select(this)
-      .transition()
-      .delay(function(d, i) { // NOT WORKING
-        console.log("<2>In each delay");
-        return i*6000;
-      })
-      .duration(5000)
-      .attrTween("transform", rotTween);
-  })
+    .transition()
+    .delay(function(d, i) { // NOT WORKING
+      console.log("In each delay");
+      return i*500;
+    })
+    .duration(5000)
+    .attr("transform", function(d,i) {
+      console.log("In transform. d:");
+      console.log(d);
+      return `rotate(180, ${d.xCtrPos}, ${d.yCtrPos})`;
+    });
 } // end rolling cascade
