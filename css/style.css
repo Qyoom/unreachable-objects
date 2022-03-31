@@ -142,6 +142,11 @@ div.control button {
   border: 1px solid #333;
 }
 
+.verbiage h4 {
+  margin-top: 0.6rem;
+  padding-bottom: 0.4rem;
+}
+
 .visualization {
   display: flex;
   flex-direction: column;
@@ -192,6 +197,11 @@ a.href-decor:hover {
   color: fuchsia;
 }
 
+.footnotes {
+  border-top: #999 dotted 1px;
+  margin: 1rem 0;
+}
+
 p.footnote {
   font-size: 1.2rem;
   padding: 0.2rem 0;
@@ -201,6 +211,10 @@ aside {
   border: 1px fuchsia solid;
   padding: 0 1rem;
   margin: 1rem 0;
+}
+
+.series {
+  border-left: rgb(204, 183, 204) solid 1px;
 }
 
 /* Responsive media queries */
