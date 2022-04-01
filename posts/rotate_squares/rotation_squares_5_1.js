@@ -92,7 +92,7 @@ function rollCascade() {
       console.log("In each delay");
       return i*500;
     })
-    .duration(5000)
+    .duration(4000)
     .attr("transform", function(d,i) {
       console.log("In transform. d:");
       console.log(d);
