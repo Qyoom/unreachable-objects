@@ -1,0 +1,13 @@
+svg {
+  background-color: blanchedalmond;
+}
+
+svg rect {
+  fill-opacity: 0%;
+  stroke-width: 0.15rem;
+  stroke: black;
+}
+
+div.control button {
+  border-radius: 0;
+}

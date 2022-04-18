@@ -72,23 +72,11 @@ let cells = svg.selectAll("rect")
     } // end enter
   ) // end join
 
-// rotation function (closure)
-// function rotTween(d) { // d is cellData
-//   console.log("rotTween d:");
-//   console.log(d);
-//   const interp = d3.interpolate(0, 360);
-//   return function(t) {
-//     console.log("closure t:");
-//     console.log(t);
-//     return `rotate(${interp(t)}, ${d.xCtrPos}, ${d.yCtrPos})`;
-//   };
-// }
-
 function rollCascade() {
   console.log("rollCascade TOP");
   cells
     .transition()
-    .delay(function(d, i) { // NOT WORKING
+    .delay(function(d, i) { // WORKING
       console.log("In each delay");
       return i*500;
     })
@@ -96,6 +84,6 @@ function rollCascade() {
     .attr("transform", function(d,i) {
       console.log("In transform. d:");
       console.log(d);
-      return `rotate(180, ${d.xCtrPos}, ${d.yCtrPos})`;
+      return `rotate(180, ${d.xCtrPos}, ${d.yCtrPos})`; // NOT WORKING
     });
-} // end rolling cascade
+} // end rollCascade
