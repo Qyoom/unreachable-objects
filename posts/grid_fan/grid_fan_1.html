@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="grid_fan_1.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- <script src="/d3_lib/d3_7_3.min.js"></script> -->
+  <title>Unreachable Objects | Effulgence</title>
+</head>
+
+<body>
+  
+  <header class="flex-container navbar">
+    <div class="logo">
+      <h1><a href="../../index.html">Unreachable Objects</a></h1>
+      <p>A generative, algorithmic workbook</p>
+    </div>
+    <nav class="nav transparent">
+      <div class="nav-item nav-1 transparent">
+        <a href="../../about_short.html">About</a>
+      </div>
+      <div class="nav-item nav-2 transparent">
+        <a href="../../experiments.html">Experiments</a>
+      </div>
+      <div class="nav-item nav-3 transparent">
+        <a href="../../contact.html">Talk</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="main">
+    <div class="control">
+      <button onclick="activateCascade()">Activate Image</button>
+    </div>
+    <div id="squares" class="visualization"></div>
+    <div class="control">
+      <button onclick="activateCascade()">Activate Image</button>
+    </div>
+    <div class="verbiage">
+      <h2>Effulgence (Grid Fan #1)</h2>
+      <p>This piece represents a welcome affirmation of my exploratory process so far. In previous experiments I have been exploring how to do simple rotation of grid cells in sequence variations. <a href="/posts/nees/nees_squares_1.html" target="_blank" rel="noopener" class="href-decor">My initial target was to emulate</a> the classic 1968 - 1970 piece by George Nees.<a class="href-decor" href="#fn1" id="fn_1"><sup>[1]</sup></a> During such investigation of artists and their work I hope to make discoveries and draw inspiration from experiments, accidents, and coincidences such as this along the way.</p>
+
+      <div class="footnotes">
+        <p id="fn1" class="footnote lite-link">
+          [1] <i><a href="https://collections.vam.ac.uk/item/O221321/schotter-print-nees-georg/" target="_blank" rel="noopener noreferrer">https://collections.vam.ac.uk/item/O221321/schotter-print-nees-georg/</a></i> Victoria and Albert Museum.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="grid_fan_1.js"></script>
+</body>
+</html>
