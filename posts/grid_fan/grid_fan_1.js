@@ -1,4 +1,4 @@
-console.log("nees_squares_lab_1.js")
+console.log("grid_fan_1.js")
 
 // Configuration
 const cellSize = 25;
@@ -56,30 +56,18 @@ let cells = svg.selectAll("rect")
   .data(cellData)
   .join(
     function(enter) {
-      // console.log("join enter:");
-      // console.log(enter);
       return enter.append("rect")
         .attr("x", function(d) { return d.xPos })
         .attr("y", function(d) { return d.yPos})
         .attr("width", cellSize)
-        .attr("height", cellSize)
-        .on('click', function() {
-          d3.select(this)
-            .transition()
-            .duration(rotDur)
-            .attrTween("transform", rotTween);
-        }); // end on click
+        .attr("height", cellSize);
     } // end enter
-  ) // end join
+  ); // end join
 
 // rotation function (closure)
 function rotTween(d) { // d is cellData
-  console.log("rotTween d:");
-  console.log(d);
   const interp = d3.interpolate(0, d.rotDeg);
   return function(t) {
-    console.log("closure t:");
-    console.log(t);
     return `rotate(${interp(t)}, ${d.xCtrPos}, ${d.yCtrPos})`;
   };
 }
@@ -87,17 +75,9 @@ function rotTween(d) { // d is cellData
 function activateCascade() {
   cells
   .each(function(d) {
-    console.log("<1>In each");
-    console.log(d);
-    console.log('this:');
-    console.log(this);
     d3.select(this)
       .transition()
-      .delay(function(d, i) { // DELAY NOT WORKING
-        console.log("<2>In each delay");
-        return i*6000;
-      })
-      .duration(5000)
+      .duration(rotDur)
       .attrTween("transform", rotTween);
   })
-} // end rolling cascade
+}
