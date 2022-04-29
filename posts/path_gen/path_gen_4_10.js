@@ -1,4 +1,4 @@
-console.log('path_resp_lab_4_10.js');
+console.log('path_gen_4_10.js');
 
 // Line generator
 const lineGen = d3.line()
