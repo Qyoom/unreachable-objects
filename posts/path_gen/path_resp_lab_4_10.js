@@ -131,7 +131,6 @@ function activateImage() {
     exit => exit.remove()
   )
   .attr('cx', function(d, i){
-    console.log("index", i, d.px, d.y);
     return d.px;
   })
   .attr('cy', function(d){
