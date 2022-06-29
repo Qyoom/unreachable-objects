@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="post_style.css">
+  <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
+  <script src="/d3_lib/d3_7_3.min.js"></script>
+  <title>Unreachable Objects | Sol Lewitt</title>
+</head>
+
+<body>
+  
+  <header class="flex-container navbar">
+    <div class="logo">
+      <h1><a href="../../index.html">Unreachable Objects</a></h1>
+      <p>A generative, algorithmic workbook</p>
+    </div>
+    <nav class="nav transparent">
+      <div class="nav-item nav-1 transparent">
+        <a href="../../about_short.html">About</a>
+      </div>
+      <div class="nav-item nav-2 transparent">
+        <a href="../../experiments.html">Experiments</a>
+      </div>
+      <div class="nav-item nav-3 transparent">
+        <a href="../../contact.html">Talk</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="main">
+    <p class="prompt">[Click drawing to generate new]</p>
+    <div id="lewitt-bw-drawing" class="visualization"></div>
+    <div class="verbiage">
+      <h2>Sol LeWitt's Algorithmic Drawing (B&W)</h2>
+      <p>
+        Sol Lewitt was a founder of art movements in the 1960's referred to as minimal and conceptual. 
+        Prolific as sculptor, printmaker, and creator of books, he became known also for the large series of 
+        drawings made directly on walls of museums and private residences. These drawings were most often
+        drawn by various individuals—draftpersons, students, designers, or even museum visitors—according 
+        to sets of very simple instructions, such as the one for the drawing visualized on this page:
+      </p>
+      <p>
+        <span>“On a wall surface, any continuous stretch of wall, using a hard pencil, place fifty 
+        points at random. The points should be evenly distributed over the area of the wall. All 
+        of the points should be connected by straight lines.”</span>
+      </p>
+      <p>
+        For LeWitt, the work of art was in the conception. The making was secondary. The process of the
+        making of the physical artifact could result in a thing of beauty or intellectual interest. But 
+        it was not the primary creative act of the art work.
+      </p>
+      <p>Sol LeWitt did not use the computer. He did not think in terms of algorthims by that name, but rather
+        instruction, albeit simple and allowing for latitude of variation in the result.></p>
+    </div>
+  </div>
+
+  <script src="complete_graph_drawing_6.js"></script>
+</body>
+</html>
