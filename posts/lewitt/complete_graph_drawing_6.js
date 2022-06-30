@@ -108,7 +108,7 @@ function drawNewGraph() {
       )
         .style("stroke", "rgb(85 85 85 / 70%")
         .style("stroke-width", 1)
-        .transition().duration(1000)  // HACK: THIS IS THE ONLY DIFFERENCE
+        .transition().duration(1200)  // HACK: THIS IS THE ONLY DIFFERENCE
         .attr("x1", function(d) {
           return d.v1.x
         })
@@ -143,7 +143,7 @@ function genNewDrawing() {
  * Click handler
  */
 // https://gomakethings.com/detecting-click-events-on-svgs-with-vanilla-js-event-delegation/
-  document.addEventListener('click', function (event) {
+document.addEventListener('click', function (event) {
   if (!event.target.closest('.visualization')) {
     // console.log('no match!')
     return
