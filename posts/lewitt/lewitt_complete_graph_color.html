@@ -35,88 +35,35 @@
     <p class="prompt">[Click drawing to generate new]</p>
     <div id="lewitt-color-drawing" class="visualization"></div>
     <div class="verbiage">
-      <h2>Sol LeWitt’s Wall Drawing #118</h2>
+      <h2>Sol LeWitt’s Wall Drawing #118 (Color)</h2>
       <p>
-        Sol Lewitt was one of the founders of art movements in the 1960’s known as minimal and conceptual.<a class="href-decor" href="#fn1"><sup>[1]</sup></a> 
-        Prolific as sculptor, printmaker, and creator of artist books, he became known also for the large series of 
-        drawings made directly on walls of museums and private residences. The actual drawings were most often
-        drawn by others—commissioned draftpersons, students, designers, or even random museum visitors—according 
-        to LeWitt’s very simple written instructions. For instance, in 1971 students at the School of the Museum of Fine Arts, Boston, who 
-        had come to hear LeWitt lecture were instead enlisted to create Wall Drawing #118 according to the following 
-        directions.
+        This is a color version of my previous <a class="href-decor" href="./lewitt_complete_graph_bw.html">black and white study of Sol LeWitt's Wall Drawing #118</a>.
+        See that version for my comments on LeWitt’s conceptual and minimalist process. 
       </p>
-      <blockquote cite="https://observer.com/2012/10/here-are-the-instructions-for-sol-lewitts-1971-wall-drawing-for-the-school-of-the-mfa-boston/">
-        <p class="quotation">
-          On a wall surface, any continuous stretch of wall, using a hard pencil, place fifty 
-          points at random. The points should be evenly distributed over the area of the wall. All 
-          of the points should be connected by straight lines.<a class="href-decor" href="#fn2"><sup>[2]</sup></a>
-        </p>
-      </blockquote>
-      <p>
-        For LeWitt, the creative act in the work of art was realized in the conception. The physical construction of the work
-        was secondary, and not even necessary in all cases. The process of making the physical 
-        artifact could result in a thing of beauty or intellectual interest. But it did not constitute 
-        the creative act.
+      <p> 
+        My attempt has been to assign a unique color to each “point” or vertex, and then have the lines connecting
+        each pair of vertices (points) be a gradient color transition from one point to the other. This is 
+        indeed happening in many cases, however is appears that in some lines the transition is reversed.
+        So I will have to iron out this glitch in the algorithm as some point (many points). But I don't 
+        actually mind the “noise” that is introduced by the lines with reversed gradients. It adds a kind of color texture.
       </p>
-      <p>
-        Sol LeWitt did not use a computer. He did not think in terms of <em>algorthims</em>, now
-        associated with the way we think about the involvement and control that computers exert upon our
-        lives. Instead, LeWitt’s simple intstructions allowed for individual human interpretation, 
-        and the resulting variations were part of what interested him.
-      </p>
-      <p>
-        Now in the high tech era, when millions of people write code
-        professionally, as students, or as artists, LeWitt‘s ideas and artifacts seem especially relevant and accomodating
-        to the generative nature of the computer’s capabilities.
-      </p>
-      <p>
-        I ran across an image of Mitchell Chan's version of Wall Drawing #118<a class="href-decor" href="#fn3"><sup>[3]</sup></a> in Matilde Marcolli’s book titled <em>Lumen Naturae: 
-        Visions of the Abstract in Art and Mathematics</em>. Marcolli uses the drawing as an example of
-        an artist’s work depicting a version of what mathematicians call <em>vectors</em>—the lines 
-        and points in a <em>vector space</em> representing numbers, magnitude, velocity, or location. 
-        Marcolli, however, understands that in the artist’s way of working intuitively, the lines represent form 
-        in its abstract purity. I was immediately inspired to see if I could basically replicate the drawing as an 
-        experiment to include in <em>Unreachable Objects</em>. I was not aware, at first, that there existed 
-        any instruction for how to go about it. But I could pretty much tell what was going on by looking at the 
-        example in Marcolli's book. I chose to use forty points (vertices), not knowing that LeWitt’s instruction required  
-        fifty. After learning this I decided to stay with forty, liking the slightly more sparse feel. It 
-        appears to me that other computer-based versions of Drawing #118, like mine, implement a randomized placement 
-        of vertices across the field of the drawing space. I might knitpick a little and say that random placement 
-        is not the same as being "evenly distributed" as mandated by LeWitt's instructions. But I think random placement does create more interesting visual variations.
-      </p>
-      <p>  
-        I also did a bit of online research to learn that Wall Drawing #118 was, without intention, a 
-        representation of what in graph theory is propery called a "complete graph"; that is, a graph where every 
-        vertex, or node, is connected by a unique edge (path, or line) to every other vertex.<a class="href-decor" href="#fn4"><sup>[4]</sup></a> 
-        Such a structure might be comparable to a company directory listing the email addresses of every employee.
-      </p>
-      <p>
-        After I had achieved replicating a facsimili of Chan's version of LeWitt's instruction, I was not 
-        surprised to find out that there exists several other examples of Wall Drawing #118 
-        online. True to LeWitt’s conception, each version has its own variation on the model, 
-        including what I might call “enhancements” afforded by the computer, such as movement, color, and 
-        interactivity.
-      </p>
-      <p>
-        I think LeWitt would appreciate that his conceptions continue to inspire exploration
-        and expression of the simple beauty of in conception and complexity in his ideas.
-      </p>
-      <blockquote>
-        <p class="quotation">
-          See the following links for more implementations of Sol LeWitt’s Wall Drawing #118.
-        </p>
-        <p>
-          <a class="href-decor" href="http://sites.bxmc.poly.edu/~HelenCarey/lewitt/index118.html" target="_blank" rel="noopener">Drawing 1</a>, 
-          <a class="href-decor" href="https://bl.ocks.org/eesur/fa54ecebcb9106937a959c3c6242dc07" target="_blank" rel="noopener">Drawing 2</a>, 
-          <a class="href-decor" href="https://igorkorenfeld.com/code/sol-lewitt/" target="_blank" rel="noopener">Drawing 3</a>
-        </p>
-      </blockquote>
 
+      <p>
+        LeWitt commonly had other persons follow his simple directions for 
+        executing the actual creation of his many wall drawings using pencils or crayon. I and many
+        other have experimented with recreating LeWitt’s drawings on the computer by mostly hewing to his simple 
+        directions. Some people have also worked out color versions.<a class="href-decor" href="#fn1"><sup>[1]</sup></a> My own intention is to next do a version 
+        in three-dimensional space. My ethos is to steal like an artist<a class="href-decor" href="#fn1"><sup>[2]</sup></a>, attempting
+        to learn something along the way and to experiment with further extensions of the idea.
+      </p>
+      
       <div class="footnotes">
-        <p id="fn1" class="footnote lite-link">[1] Wikipedia contributors. "<a href="https://en.wikipedia.org/wiki/Sol_LeWitt" target="_blank" rel="noopener">Sol LeWitt</a>." Wikipedia, The Free Encyclopedia. 13 May. 2022. Web. 29 Jun. 2022.</p>
-        <p id="fn2" class="footnote lite-link">[2] Andrew Russeth. "<a href="https://observer.com/2012/10/here-are-the-instructions-for-sol-lewitts-1971-wall-drawing-for-the-school-of-the-mfa-boston/" target="_blank" rel="noopener">Here Are the Instructions for Sol LeWitt’s 1971 Wall Drawing for the School of the MFA Boston</a>." Observer, 10/01/12.</p>  
-        <p id="fn3" class="footnote lite-link">[3] Mitchell Chan. "<a href="https://youtu.be/RDrHHsez3nU" target="_blank" rel="noopener">Sol LeWitt Translator: Wall Drawing #118</a>" Youtube, Nov 22, 2013</p>
-        <p id="fn4" class="footnote lite-link">[4] Wikipedia contributors. "<a href="https://en.wikipedia.org/wiki/Complete_graph" target="_blank" rel="noopener">Complete graph</a>." Wikipedia, The Free Encyclopedia. 16 Feb. 2022. Web. 30 Jun. 2022.</p>
+        <p id="fn1" class="footnote lite-link">
+          [1] Sundar Singh. "<a href="https://bl.ocks.org/eesur/fa54ecebcb9106937a959c3c6242dc07" target="_blank" rel="noopener">Sol LeWitt’s Wall Drawing #118</a>." May 23, 2017.
+        </p>
+        <p id="fn2" class="footnote lite-link">
+          [2] Kleon, Austin. <i><a href="https://austinkleon.com/steal/" target="_blank" rel="noopener noreferrer">Steal Like an Artist: 10 Things Nobody Told You About Being Creative</a></i>. Workman Publishing Company, 2012.
+        </p>
       </div> <!--end footnotes-->
     </div> <!--end verbiage-->
   </div>
