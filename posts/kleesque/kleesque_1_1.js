@@ -82,7 +82,7 @@ function randomColor() {
  * Assemble data structures
  */
 
-// Append vertical lines
+// Assemble vertical lines
 for (let i = 1; i < numVertLines; i++) {
 
   const vertLine = {
@@ -99,7 +99,7 @@ for (let i = 1; i < numVertLines; i++) {
   vertLines.push(vertLine);
 }
 
-// Append horizontal lines
+// Assemble horizontal lines
 for (let i = 1; i < numHorizLines; i++) {
 
   const horizLine = {
@@ -114,6 +114,10 @@ for (let i = 1; i < numHorizLines; i++) {
   horizLines.push(horizLine);
 }
 
+/*
+ * Quads
+ */
+
 // Combinatorial intersections
 vertLines.forEach(vertLine => {
   horizLines.forEach(horizLine => {
@@ -121,20 +125,15 @@ vertLines.forEach(vertLine => {
     
     vertLine.intersections.push(intersection); // because of lifo, reads left to right (x,y)
   });
-
-  //console.log('vertLine.intersections:', vertLine.intersections);
-  //console.log('vertLine:', vertLine);
 });
-
-console.log('-------Quads-------');
 
 // Loop vertical lines
 for (let vi = 0; vi < vertLines.length - 1; vi++) { // length minus 1 used until border quads are added.
   const vertLine = vertLines[vi];
-  //console.log('vertLine:', vertLine);
   
   // Loop intersections
   for (let ii = 0; ii < vertLine.intersections.length - 1; ii++) {
+    // This is the heart of the matter
     const quad = {
       upLeftCorner: vertLine.intersections[ii],
       upRightCorner: vertLines[vi + 1].intersections[ii],
