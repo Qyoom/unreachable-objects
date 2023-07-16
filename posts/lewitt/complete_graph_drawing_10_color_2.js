@@ -74,7 +74,6 @@ const svg = d3.select("#lewitt-color-drawing")
     // .attr("width", windowSize.width - 20) // Not responsive
     // .attr("height", windowSize.height * 0.87)
     .attr("width", windowSize.width * 0.4) // Narrower canvas
-    .attr("width", windowSize.width * 0.4) // Narrower canvas
     .attr("height", windowSize.height * 0.87)
     .style("background-color", "#fff3e3")
 
