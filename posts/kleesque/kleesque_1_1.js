@@ -68,20 +68,19 @@ function findIntersection(line1, line2) {
   return { x, y };
 }
 
-/*
- * SVG
- */
-const svg = d3.select("#drawing")
-  .append("svg")
-  .attr("width", windowSize.width * 0.90)
-  .attr("height", windowSize.height * 0.90);
+https://stackoverflow.com/questions/1484506/random-color-generator
+function randomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
 
-const border = svg.append('rect')
-  .style("stroke", "rgb(0 0 0)") // b&w
-  .style("stroke-width", lineWidth * 2)
-  .attr("fill", "none")
-  .attr("width", windowSize.width * 0.90)
-  .attr("height", windowSize.height * 0.90);
+/*
+ * Assemble data structures
+ */
 
 // Append vertical lines
 for (let i = 1; i < numVertLines; i++) {
@@ -96,14 +95,6 @@ for (let i = 1; i < numVertLines; i++) {
     intersections: [],
     quads: []
   }
-
-  /* svg.append('line')
-    .style("stroke", "rgb(0 0 0)")
-    .style("stroke-width", lineWidth)
-    .attr("x1", vertLine.endpoints.x1)
-    .attr("y1", vertLine.endpoints.y1)
-    .attr("x2", vertLine.endpoints.x2)
-    .attr("y2", vertLine.endpoints.y2); */
 
   vertLines.push(vertLine);
 }
@@ -120,14 +111,6 @@ for (let i = 1; i < numHorizLines; i++) {
     }
   }
 
-  svg.append('line')
-    .style("stroke", "rgb(0 0 0)")
-    .style("stroke-width", lineWidth)
-    .attr("x1", horizLine.endpoints.x1)
-    .attr("y1", horizLine.endpoints.y1)
-    .attr("x2", horizLine.endpoints.x2)
-    .attr("y2", horizLine.endpoints.y2);
-
   horizLines.push(horizLine);
 }
 
@@ -137,14 +120,6 @@ vertLines.forEach(vertLine => {
     const intersection = findIntersection(vertLine.endpoints, horizLine.endpoints);
     
     vertLine.intersections.push(intersection); // because of lifo, reads left to right (x,y)
-
-    // Diagnostic: Red dot at the intersections
-    /* const intrsctCircle = svg.append('circle')
-      .style("stroke", "rgb(0 0 0)")
-      .attr('cx', intersection.x)
-      .attr('cy', intersection.y)
-      .attr('r', 5)
-      .style('fill', 'red'); */
   });
 
   //console.log('vertLine.intersections:', vertLine.intersections);
@@ -176,15 +151,21 @@ for (let vi = 0; vi < vertLines.length - 1; vi++) { // length minus 1 used until
 
 console.log('quads:', quads);
 
-https://stackoverflow.com/questions/1484506/random-color-generator
-function randomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
+/*
+ ************* SVG ************
+ */
+
+const svg = d3.select("#drawing")
+  .append("svg")
+  .attr("width", windowSize.width * 0.90)
+  .attr("height", windowSize.height * 0.90);
+
+const border = svg.append('rect')
+  .style("stroke", "rgb(0 0 0)") // b&w
+  .style("stroke-width", lineWidth * 2)
+  .attr("fill", "none")
+  .attr("width", windowSize.width * 0.90)
+  .attr("height", windowSize.height * 0.90);
 
 // Display quads
 // https://stackoverflow.com/questions/13204562/proper-format-for-drawing-polygon-data-in-d3
@@ -201,6 +182,29 @@ svg.selectAll(".quad")
       [d.dnLeftCorner.x, d.dnLeftCorner.y]
     ];})
   .attr('fill', function(d) { return randomColor(); });
+
+console.log('horizLines:', horizLines);
+
+// Display horizontal lines
+svg.selectAll('.horizLine')
+  .data(horizLines)
+  .enter()
+  .append('line')
+  .attr('class', 'horizLine')
+  .style("stroke", "rgb(0 0 0)")
+  .style("stroke-width", lineWidth)
+  .attr("x1", function(d) {
+    return d.endpoints.x1;
+  })
+  .attr("y1", function(d) {
+    return d.endpoints.y1;
+  })
+  .attr("x2", function(d) {
+    return d.endpoints.x2
+  })
+  .attr("y2", function(d) {
+    return d.endpoints.y2;
+  });
 
 // Display vertical lines
 svg.selectAll('.vertLine')
