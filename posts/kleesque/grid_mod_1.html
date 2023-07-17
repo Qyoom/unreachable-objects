@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- <link rel="stylesheet" href="kleesque.css"> -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- <script src="/d3_lib/d3_7_3.min.js"></script> -->
+  <title>Unreachable Objects | kleesque</title>
+</head>
+
+<body>
+  
+  <header class="flex-container navbar">
+    <div class="logo">
+      <h1><a href="../../index.html">Unreachable Objects</a></h1>
+      <p>A generative, algorithmic workbook</p>
+    </div>
+    <nav class="nav transparent">
+      <div class="nav-item nav-1 transparent">
+        <a href="../../about_short.html">About</a>
+      </div>
+      <div class="nav-item nav-2 transparent">
+        <a href="../../experiments.html">Experiments</a>
+      </div>
+      <div class="nav-item nav-3 transparent">
+        <a href="../../contact.html">Talk</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="main">
+    <div class="control">
+      <button onclick="activateImage()">Activate Image</button>
+    </div>
+    <div id="drawing" class="visualization"></div>
+    <div class="control">
+      <button onclick="activateImage()">Activate Image</button>
+    </div>
+    <div class="verbiage">
+      <h2>Grid Modern</h2>
+      <p>My infatuation with the grid continues. This time I was inspired to explore impressions whispered by <a class="href-decor" href="https://en.wikipedia.org/wiki/Piet_Mondrian" target="_blank" rel="noopener">Mondrian</a> and <a class="href-decor" href="https://en.wikipedia.org/wiki/Paul_Klee" target="_blank" rel="noopener">Klee</a>. These subliminal hints easily drifted off as I became subsumed in the  task of writing code, seeing where it would take me as I talked with it and watched what its results.</p>
+      <p>Code is the medium. I like to think that the resulting application will continue generating variations on its internal set of parameters. That is, as long as anyone cares to press the activate button.</p>
+      <p>In the reductionist sense, I am trying to explore space, color, movement, gesture through the expansion of the grid idea by introducing random arrangement of elements, that is, playing with the constraints of the two dimensional plane.</p>
+      <p>To give an idea of what generative art means for me, I had the thought this morning that these pieces will continue forming and revealing themselves as long as they are hosted on a computer somewhere, and someone finds them and presses the active button. They present versions of infinity. In that sense they are pieces of infinite artwork. At least as long as there is someone somewhere to press a button, again and again, just to see a little bit of infinity in the making.</p>
+      <p>If that sounds a little pompous, I apologize. It actually feels humbling to me. After all, the grid, and the programing language, and the computers are just media and concepts that I am borrowing and playing with for a brief window of time.</p>
+    </div>
+  </div>
+
+  <script src="grid_mod_1.js"></script>
+</body>
+</html>
