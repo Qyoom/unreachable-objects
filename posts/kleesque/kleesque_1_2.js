@@ -181,6 +181,7 @@ vertLines.forEach(vertLine => {
   });
 });
 
+// Create quads
 // Loop vertical lines
 for (let vi = 0; vi < vertLines.length - 1; vi++) { // length minus 1 used until border quads are added.
   const vertLine = vertLines[vi];
