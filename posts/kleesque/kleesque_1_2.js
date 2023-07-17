@@ -113,7 +113,7 @@ for (let i = 1; i < numVertLines; i++) {
   vertLines.push(vertLine);
 }
 
-// Leftmost vertLine
+// Rightmost vertLine
 const rightMostVertLine = {
   endpoints: {
     x1: svgSize.width,
@@ -126,6 +126,18 @@ const rightMostVertLine = {
 }
 
 vertLines.push(rightMostVertLine); // Order matters, this has to be last
+
+// topmost horizLine
+const topmostHorizLine = {
+  endpoints: {
+    x1: 0,
+    y1: 0,
+    x2: svgSize.width,
+    y2: 0
+  }
+}
+
+horizLines.push(topmostHorizLine); // Order matters, must come first
 
 // Assemble horizontal lines
 for (let i = 1; i < numHorizLines; i++) {
@@ -141,6 +153,18 @@ for (let i = 1; i < numHorizLines; i++) {
 
   horizLines.push(horizLine);
 }
+
+// Bottommost horizLine
+const bottommostHorizLine = {
+  endpoints: {
+    x1: 0,
+    y1: svgSize.height,
+    x2: svgSize.width,
+    y2: svgSize.height
+  }
+}
+
+horizLines.push(bottommostHorizLine); // Order matters, must come last
 
 /*
  * Quads
@@ -160,7 +184,7 @@ for (let vi = 0; vi < vertLines.length - 1; vi++) { // length minus 1 used until
   const vertLine = vertLines[vi];
   
   // Loop intersections
-  for (let ii = 0; ii < vertLine.intersections.length - 1; ii++) {
+  for (let ii = 0; ii < vertLine.intersections.length -1; ii++) {
     // This is the heart of the matter
     const quad = {
       upLeftCorner: vertLine.intersections[ii],
@@ -180,13 +204,6 @@ for (let vi = 0; vi < vertLines.length - 1; vi++) { // length minus 1 used until
 
 const svg = d3.select("#drawing")
   .append("svg")
-  .attr("width", windowSize.width * 0.90)
-  .attr("height", windowSize.height * 0.90);
-
-const border = svg.append('rect')
-  .style("stroke", "rgb(0 0 0)") // b&w
-  .style("stroke-width", lineWidth * 2)
-  .attr("fill", "none")
   .attr("width", windowSize.width * 0.90)
   .attr("height", windowSize.height * 0.90);
 
@@ -249,6 +266,13 @@ svg.selectAll('.vertLine')
   .attr("y2", function(d) {
     return d.endpoints.y2;
   });
+
+  const border = svg.append('rect')
+  .style("stroke", "rgb(0 0 0)") // b&w
+  .style("stroke-width", lineWidth * 2)
+  .attr("fill", "none")
+  .attr("width", windowSize.width * 0.90)
+  .attr("height", windowSize.height * 0.90);
 
 
 
