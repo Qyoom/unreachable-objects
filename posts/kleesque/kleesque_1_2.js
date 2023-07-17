@@ -35,7 +35,9 @@ const quads = [];
  */
 
 // randomization
-const flip = Math.random() > 0.5;
+function flip() {
+  return Math.random() > 0.5;
+}
 
 // Catch divide by 0 UTILITY
 function dbz(n) {
@@ -44,12 +46,12 @@ function dbz(n) {
 
 // Vertical displacement
 function vertDis(n) {
-  return flip ? n + Math.random() * vertSpacerAdjust : n - Math.random() * vertSpacerAdjust;
+  return flip() ? n + Math.random() * vertSpacerAdjust : n - Math.random() * vertSpacerAdjust;
 }
 
 // Horizontal displacement
 function horizDis(n) {
-  return flip ? n + Math.random() * horizSpacerAdjust : n - Math.random() * horizSpacerAdjust;
+  return flip() ? n + Math.random() * horizSpacerAdjust : n - Math.random() * horizSpacerAdjust;
 }
 
 // Find Intersection of two lines
@@ -222,8 +224,6 @@ svg.selectAll(".quad")
       [d.dnLeftCorner.x, d.dnLeftCorner.y]
     ];})
   .attr('fill', function(d) { return randomColor(); });
-
-console.log('horizLines:', horizLines);
 
 // Display horizontal lines
 svg.selectAll('.horizLine')
