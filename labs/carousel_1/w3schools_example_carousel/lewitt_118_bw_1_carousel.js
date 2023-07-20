@@ -27,8 +27,8 @@ function randomIntFromInterval(min, max) { // min and max included
  */
 const svg_lewitt_118_bw = d3.select("#lewitt-118-bw")
   .append("svg")
-    .attr("width", windowSize.width * 0.9) // Not responsive
-    .attr("height", windowSize.height * 0.82)
+    .attr("width", svgSize.width) // * 0.9) // Not responsive
+    .attr("height", svgSize.height) // * 0.82)
     .style("background-color", "#fff3e3")
 
 /**
@@ -41,8 +41,8 @@ function genGraphData() {
   // Generate vertices
   for (let i = 1; i <= qtyVertices; i++) {
     vertices.push({
-      x: randomIntFromInterval(10, windowSize.width * .9),
-      y: randomIntFromInterval(10, windowSize.height * 0.80),
+      x: randomIntFromInterval(10, svgSize.width - 10),
+      y: randomIntFromInterval(10, svgSize.height - 20),
       id: i
     })
   }

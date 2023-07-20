@@ -5,6 +5,11 @@ const windowSize = {
   height: window.innerHeight
 };
 
+const svgSize = {
+  width: windowSize.width * 0.9,
+  height: windowSize.height * 0.82 // 0.90
+}
+
 // Click handler
 // https://gomakethings.com/detecting-click-events-on-svgs-with-vanilla-js-event-delegation/
 document.addEventListener('click', function (event) {
@@ -26,7 +31,7 @@ document.addEventListener('click', function (event) {
 
   if(event.target.closest('#lewitt-118-color')) {
     console.log('clicked lewitt-118-color');
-    getLewittColorDrawing();
+    genNew118ColorDrawing();
   }
 
   // console.log(event.target)

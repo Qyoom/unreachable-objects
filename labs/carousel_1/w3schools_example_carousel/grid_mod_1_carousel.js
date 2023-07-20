@@ -9,10 +9,10 @@ console.log('grid_mod_1_carousel.js');
   height: window.innerHeight
 } */
 
-const svgSize = {
+/* const svgSize = {
   width: windowSize.width * 0.9,
   height: windowSize.height * 0.82 // 0.90
-}
+} */
 
 const vertSpacer = 112; // 115; // 120; // approx space between horizontal lines
 const horizSpacer = 87; // 90; // approx space between vertical lines
