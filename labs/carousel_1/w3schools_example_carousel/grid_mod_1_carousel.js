@@ -76,231 +76,232 @@ function randomColor() {
 }
 
 /*
- ************* SVG ************
+ * SVG
  */
 
  let svg = d3.select("#grid-modern")
  .append("svg")
+ // size not responsive
  .attr("width", svgSize.width)
  .attr("height", svgSize.height);
 
 /*
  Bloody hack for generating each new drawing
+ Starting over with blunt force. Not using elegant and efficient D3js
 */ 
 function genGridModDrawing() {
   console.log('genGridModDrawing');
 
-  svg.remove(); // Hack
+  svg.remove(); // Must fix per D3 norms
 
   svg = d3.select("#grid-modern")
- .append("svg")
- .attr("width", svgSize.width)
- .attr("height", svgSize.height);
+    .append("svg")
+    .attr("width", svgSize.width)
+    .attr("height", svgSize.height);
 
-/*
- * Element objects
- */
-const vertLines = [];
-const horizLines = [];
-const intersections = [];
-const quads = [];
+  /*
+  * Element objects
+  */
+  const vertLines = [];
+  const horizLines = [];
+  const intersections = [];
+  const quads = [];
 
-/*
- * Assemble data structures
- */
+  /*
+  * Assemble data structures
+  */
 
-// Leftmost vertLine
-const leftMostVertLine = {
-  endpoints: {
-    x1: 0,
-    y1: 0,
-    x2: 0,
-    y2: svgSize.height
-  },
-  intersections: [],
-  quads: []
-}
-
-vertLines.push(leftMostVertLine); // Order matters, this has to be first
-
-// Assemble vertical lines
-for (let i = 1; i < numVertLines; i++) {
-
-  const vertLine = {
+  // Leftmost vertLine
+  const leftMostVertLine = {
     endpoints: {
-      x1: horizDis(horizSpacerAdjust * i),
+      x1: 0,
       y1: 0,
-      x2: horizDis(horizSpacerAdjust * i),
+      x2: 0,
       y2: svgSize.height
     },
     intersections: [],
     quads: []
   }
 
-  vertLines.push(vertLine);
-}
+  vertLines.push(leftMostVertLine); // Order matters, this has to be first
 
-// Rightmost vertLine
-const rightMostVertLine = {
-  endpoints: {
-    x1: svgSize.width,
-    y1: 0,
-    x2: svgSize.width,
-    y2: svgSize.height
-  },
-  intersections: [],
-  quads: []
-}
+  // Assemble vertical lines
+  for (let i = 1; i < numVertLines; i++) {
 
-vertLines.push(rightMostVertLine); // Order matters, this has to be last
+    const vertLine = {
+      endpoints: {
+        x1: horizDis(horizSpacerAdjust * i),
+        y1: 0,
+        x2: horizDis(horizSpacerAdjust * i),
+        y2: svgSize.height
+      },
+      intersections: [],
+      quads: []
+    }
 
-// topmost horizLine
-const topmostHorizLine = {
-  endpoints: {
-    x1: 0,
-    y1: 0,
-    x2: svgSize.width,
-    y2: 0
+    vertLines.push(vertLine);
   }
-}
 
-horizLines.push(topmostHorizLine); // Order matters, must come first
+  // Rightmost vertLine
+  const rightMostVertLine = {
+    endpoints: {
+      x1: svgSize.width,
+      y1: 0,
+      x2: svgSize.width,
+      y2: svgSize.height
+    },
+    intersections: [],
+    quads: []
+  }
 
-// Assemble horizontal lines
-for (let i = 1; i < numHorizLines; i++) {
+  vertLines.push(rightMostVertLine); // Order matters, this has to be last
 
-  const horizLine = {
+  // topmost horizLine
+  const topmostHorizLine = {
     endpoints: {
       x1: 0,
-      y1: vertDis(vertSpacerAdjust * i),
+      y1: 0,
       x2: svgSize.width,
-      y2: vertDis(vertSpacerAdjust * i)
+      y2: 0
     }
   }
 
-  horizLines.push(horizLine);
-}
+  horizLines.push(topmostHorizLine); // Order matters, must come first
 
-// Bottommost horizLine
-const bottommostHorizLine = {
-  endpoints: {
-    x1: 0,
-    y1: svgSize.height,
-    x2: svgSize.width,
-    y2: svgSize.height
-  }
-}
+  // Assemble horizontal lines
+  for (let i = 1; i < numHorizLines; i++) {
 
-horizLines.push(bottommostHorizLine); // Order matters, must come last
-
-/*
- * Quads
- */
-
-// Combinatorial intersections
-vertLines.forEach(vertLine => {
-  horizLines.forEach(horizLine => {
-    const intersection = findIntersection(vertLine.endpoints, horizLine.endpoints);
-    
-    vertLine.intersections.push(intersection); // because of lifo, reads left to right (x,y)
-  });
-});
-
-// Create quads
-// Loop vertical lines
-for (let vi = 0; vi < vertLines.length - 1; vi++) { // length minus 1 used until border quads are added.
-  const vertLine = vertLines[vi];
-  
-  // Loop intersections
-  for (let ii = 0; ii < vertLine.intersections.length -1; ii++) {
-    // This is the heart of the matter
-    // Assumes quadrilateral polygon, but seems to work with triangles. More analysis needed.
-    const quad = {
-      upLeftCorner: vertLine.intersections[ii],
-      upRightCorner: vertLines[vi + 1].intersections[ii],
-      dnLeftCorner: vertLine.intersections[ii + 1],
-      dnRightCorner: vertLines[vi + 1].intersections[ii + 1]
+    const horizLine = {
+      endpoints: {
+        x1: 0,
+        y1: vertDis(vertSpacerAdjust * i),
+        x2: svgSize.width,
+        y2: vertDis(vertSpacerAdjust * i)
+      }
     }
 
-    vertLine.quads.push(quad); // not used
-    quads.push(quad);
+    horizLines.push(horizLine);
   }
-}
 
-/*
- ************* SVG ************
- */
+  // Bottommost horizLine
+  const bottommostHorizLine = {
+    endpoints: {
+      x1: 0,
+      y1: svgSize.height,
+      x2: svgSize.width,
+      y2: svgSize.height
+    }
+  }
 
-// Display quads
-// https://stackoverflow.com/questions/13204562/proper-format-for-drawing-polygon-data-in-d3
-svg.selectAll(".quad")
-  .data(quads)
-  .enter()
-  .append("polygon")
-  .attr('class', 'quad')
-  .attr("points",function(d) {
-    return[
-      [d.upLeftCorner.x, d.upLeftCorner.y],
-      [d.upRightCorner.x, d.upRightCorner.y], 
-      [d.dnRightCorner.x, d.dnRightCorner.y], 
-      [d.dnLeftCorner.x, d.dnLeftCorner.y]
-    ];})
-  .attr('fill', function(d) { return randomColor(); });
-
-// Display horizontal lines
-svg.selectAll('.horizLine')
-  .data(horizLines)
-  .enter()
-  .append('line')
-  .attr('class', 'horizLine')
-  .style("stroke", "rgb(0 0 0)")
-  .style("stroke-width", lineWidth)
-  .attr("x1", function(d) {
-    return d.endpoints.x1;
-  })
-  .attr("y1", function(d) {
-    return d.endpoints.y1;
-  })
-  .attr("x2", function(d) {
-    return d.endpoints.x2
-  })
-  .attr("y2", function(d) {
-    return d.endpoints.y2;
-  });
-
-// Display vertical lines
-svg.selectAll('.vertLine')
-  .data(vertLines)
-  .enter()
-  .append('line')
-  .attr('class', 'vertLine')
-  .style("stroke", "rgb(0 0 0)")
-  .style("stroke-width", lineWidth)
-  .attr("x1", function(d) {
-    return d.endpoints.x1;
-  })
-  .attr("y1", function(d) {
-    return d.endpoints.y1;
-  })
-  .attr("x2", function(d) {
-    return d.endpoints.x2
-  })
-  .attr("y2", function(d) {
-    return d.endpoints.y2;
-  });
-
-  const border = svg.append('rect')
-  .style("stroke", "rgb(0 0 0)") // b&w
-  .style("stroke-width", lineWidth * 2)
-  .attr("fill", "none")
-  .attr("width", svgSize.width)
-  .attr("height", svgSize.height);
-
-} // end genDrawing
+  horizLines.push(bottommostHorizLine); // Order matters, must come last
 
   /*
-   * Page load
-   */
+  * Quads
+  */
+
+  // Combinatorial intersections
+  vertLines.forEach(vertLine => {
+    horizLines.forEach(horizLine => {
+      const intersection = findIntersection(vertLine.endpoints, horizLine.endpoints);
+      
+      vertLine.intersections.push(intersection); // because of lifo, reads left to right (x,y)
+    });
+  });
+
+  // Create quads
+  // Loop vertical lines
+  for (let vi = 0; vi < vertLines.length - 1; vi++) { // length minus 1 used until border quads are added.
+    const vertLine = vertLines[vi];
+    
+    // Loop intersections
+    for (let ii = 0; ii < vertLine.intersections.length -1; ii++) {
+      // This is the heart of the matter
+      // Assumes quadrilateral polygon, but seems to work with triangles. More analysis needed.
+      const quad = {
+        upLeftCorner: vertLine.intersections[ii],
+        upRightCorner: vertLines[vi + 1].intersections[ii],
+        dnLeftCorner: vertLine.intersections[ii + 1],
+        dnRightCorner: vertLines[vi + 1].intersections[ii + 1]
+      }
+
+      vertLine.quads.push(quad); // not used
+      quads.push(quad);
+    }
+  }
+
+  /*
+  * SVG
+  */
+
+  // Display quads
+  // https://stackoverflow.com/questions/13204562/proper-format-for-drawing-polygon-data-in-d3
+  svg.selectAll(".quad")
+    .data(quads)
+    .enter()
+    .append("polygon")
+    .attr('class', 'quad')
+    .attr("points",function(d) {
+      return[
+        [d.upLeftCorner.x, d.upLeftCorner.y],
+        [d.upRightCorner.x, d.upRightCorner.y], 
+        [d.dnRightCorner.x, d.dnRightCorner.y], 
+        [d.dnLeftCorner.x, d.dnLeftCorner.y]
+      ];})
+    .attr('fill', function(d) { return randomColor(); });
+
+  // Display horizontal lines
+  svg.selectAll('.horizLine')
+    .data(horizLines)
+    .enter()
+    .append('line')
+    .attr('class', 'horizLine')
+    .style("stroke", "rgb(0 0 0)")
+    .style("stroke-width", lineWidth)
+    .attr("x1", function(d) {
+      return d.endpoints.x1;
+    })
+    .attr("y1", function(d) {
+      return d.endpoints.y1;
+    })
+    .attr("x2", function(d) {
+      return d.endpoints.x2
+    })
+    .attr("y2", function(d) {
+      return d.endpoints.y2;
+    });
+
+  // Display vertical lines
+  svg.selectAll('.vertLine')
+    .data(vertLines)
+    .enter()
+    .append('line')
+    .attr('class', 'vertLine')
+    .style("stroke", "rgb(0 0 0)")
+    .style("stroke-width", lineWidth)
+    .attr("x1", function(d) {
+      return d.endpoints.x1;
+    })
+    .attr("y1", function(d) {
+      return d.endpoints.y1;
+    })
+    .attr("x2", function(d) {
+      return d.endpoints.x2
+    })
+    .attr("y2", function(d) {
+      return d.endpoints.y2;
+    });
+
+    const border = svg.append('rect')
+    .style("stroke", "rgb(0 0 0)") // b&w
+    .style("stroke-width", lineWidth * 2)
+    .attr("fill", "none")
+    .attr("width", svgSize.width)
+    .attr("height", svgSize.height);
+} // end genDrawing
+
+/*
+ * Page load
+ */
 
 // Entry point, called once on pageload and subsequently by click event handler.
 genGridModDrawing()
