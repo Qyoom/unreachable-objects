@@ -11,7 +11,7 @@ const windowSize = {
 
 const svgSize = {
   width: windowSize.width * 0.9,
-  height: windowSize.height * 0.83 // 0.90
+  height: windowSize.height * 0.82 // 0.90
 }
 
 const vertSpacer = 112; // 115; // 120; // approx space between horizontal lines
@@ -24,14 +24,6 @@ const vertSpacerAdjust = svgSize.height / numHorizLines;
 const horizSpacerAdjust = svgSize.width / numVertLines;
 
 const lineWidth = 7; // 8;
-
-/*
- * Element objects
- */
-const vertLines = [];
-const horizLines = [];
-const intersections = [];
-const quads = [];
 
 /*
  * Functions, operations
@@ -83,11 +75,35 @@ function randomColor() {
   return color;
 }
 
-// reload page with new drawing
-// Not D3js way
-function activateImage() {
-  location.reload();
-}
+/*
+ ************* SVG ************
+ */
+
+ let svg = d3.select("#grid-modern")
+ .append("svg")
+ .attr("width", svgSize.width)
+ .attr("height", svgSize.height);
+
+/*
+ Bloody hack for generating each new drawing
+*/ 
+function genGridModDrawing() {
+  console.log('genGridModDrawing');
+
+  svg.remove(); // Hack
+
+  svg = d3.select("#grid-modern")
+ .append("svg")
+ .attr("width", svgSize.width)
+ .attr("height", svgSize.height);
+
+/*
+ * Element objects
+ */
+const vertLines = [];
+const horizLines = [];
+const intersections = [];
+const quads = [];
 
 /*
  * Assemble data structures
@@ -215,11 +231,6 @@ for (let vi = 0; vi < vertLines.length - 1; vi++) { // length minus 1 used until
  ************* SVG ************
  */
 
-const svg = d3.select("#drawing")
-  .append("svg")
-  .attr("width", svgSize.width)
-  .attr("height", svgSize.height);
-
 // Display quads
 // https://stackoverflow.com/questions/13204562/proper-format-for-drawing-polygon-data-in-d3
 svg.selectAll(".quad")
@@ -285,6 +296,14 @@ svg.selectAll('.vertLine')
   .attr("width", svgSize.width)
   .attr("height", svgSize.height);
 
+} // end genDrawing
+
+  /*
+   * Page load
+   */
+
+// Entry point, called once on pageload and subsequently by click event handler.
+genGridModDrawing()
 
 
 

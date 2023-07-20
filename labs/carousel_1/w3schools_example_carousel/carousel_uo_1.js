@@ -1,4 +1,4 @@
-console.log('carousel_example.js');
+console.log('carousel_uo_1.js');
 
 let slideIndex = 1;
 showSlides(slideIndex);

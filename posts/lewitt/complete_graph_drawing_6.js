@@ -3,13 +3,13 @@ console.log('complete_graph_drawing_6.js')
 const windowSize = {
   width: window.innerWidth,
   height: window.innerHeight
-}
+};
 
-qtyVertices = 40
-// qtyVertices = 50
+const qtyVertices = 40;
+// qtyVertices = 50;
 
-let vertices = []
-let pairs = []
+let vertices = [];
+let pairs = [];
 
 /**
  * Utilities
