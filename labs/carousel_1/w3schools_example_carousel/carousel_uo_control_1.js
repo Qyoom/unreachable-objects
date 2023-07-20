@@ -34,6 +34,10 @@ document.addEventListener('click', function (event) {
     genNew118ColorDrawing();
   }
 
+  if(event.target.closest('#harlequin')) {
+    console.log('clicked harlequin');
+    activateImage_harlequin();
+  }
+
   // console.log(event.target)
-  //genNewDrawing() // performs transition
 }, false)

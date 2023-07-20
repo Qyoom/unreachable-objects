@@ -84,6 +84,10 @@ img {vertical-align: middle;}
   background-color: #717171;
 }
 
+svg {
+  background-color: blanchedalmond;
+}
+
 /* Fading animation */
 .fade {
   animation-name: fade;

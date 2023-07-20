@@ -157,10 +157,10 @@ function loadGradientDefs() {
 function genCoordinates() {
   // console.log('genCoordinates TOP')
   pairs_118_color.forEach(pair => {
-    pair.v1.x = randomIntFromInterval(10, svgSize.width - 10) // * 0.4 -10)
-    pair.v1.y = randomIntFromInterval(10, svgSize.height - 20) // * 0.85)
-    pair.v2.x = randomIntFromInterval(10, svgSize.width - 10) // * 0.4 -10)
-    pair.v2.y = randomIntFromInterval(10, svgSize.height -20) // * 0.85)
+    pair.v1.x = randomIntFromInterval(10, svgSize.width - 10)
+    pair.v1.y = randomIntFromInterval(10, svgSize.height - 20)
+    pair.v2.x = randomIntFromInterval(10, svgSize.width - 10)
+    pair.v2.y = randomIntFromInterval(10, svgSize.height -20)
   })
 } // end genCoordinates
 
