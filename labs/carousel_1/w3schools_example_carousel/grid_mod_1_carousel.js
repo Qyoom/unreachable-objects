@@ -4,10 +4,10 @@ console.log('grid_mod_1_carousel.js');
  * Spacial parameters
  */
 
-const windowSize = {
+/* const windowSize = {
   width: window.innerWidth,
   height: window.innerHeight
-}
+} */
 
 const svgSize = {
   width: windowSize.width * 0.9,
@@ -79,11 +79,11 @@ function randomColor() {
  * SVG
  */
 
- let svg = d3.select("#grid-modern")
- .append("svg")
- // size not responsive
- .attr("width", svgSize.width)
- .attr("height", svgSize.height);
+ let svg_grid_mod = d3.select("#grid-modern")
+  .append("svg")
+  // size not responsive
+  .attr("width", svgSize.width)
+  .attr("height", svgSize.height);
 
 /*
  Bloody hack for generating each new drawing
@@ -92,9 +92,9 @@ function randomColor() {
 function genGridModDrawing() {
   console.log('genGridModDrawing');
 
-  svg.remove(); // Must fix per D3 norms
+  svg_grid_mod.remove(); // Must fix per D3 norms
 
-  svg = d3.select("#grid-modern")
+  svg_grid_mod = d3.select("#grid-modern")
     .append("svg")
     .attr("width", svgSize.width)
     .attr("height", svgSize.height);
@@ -235,7 +235,7 @@ function genGridModDrawing() {
 
   // Display quads
   // https://stackoverflow.com/questions/13204562/proper-format-for-drawing-polygon-data-in-d3
-  svg.selectAll(".quad")
+  svg_grid_mod.selectAll(".quad")
     .data(quads)
     .enter()
     .append("polygon")
@@ -250,7 +250,7 @@ function genGridModDrawing() {
     .attr('fill', function(d) { return randomColor(); });
 
   // Display horizontal lines
-  svg.selectAll('.horizLine')
+  svg_grid_mod.selectAll('.horizLine')
     .data(horizLines)
     .enter()
     .append('line')
@@ -271,7 +271,7 @@ function genGridModDrawing() {
     });
 
   // Display vertical lines
-  svg.selectAll('.vertLine')
+  svg_grid_mod.selectAll('.vertLine')
     .data(vertLines)
     .enter()
     .append('line')
@@ -291,7 +291,7 @@ function genGridModDrawing() {
       return d.endpoints.y2;
     });
 
-    const border = svg.append('rect')
+    const border = svg_grid_mod.append('rect')
     .style("stroke", "rgb(0 0 0)") // b&w
     .style("stroke-width", lineWidth * 2)
     .attr("fill", "none")
