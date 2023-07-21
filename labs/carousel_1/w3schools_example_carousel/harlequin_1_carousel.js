@@ -6,7 +6,7 @@ const lineGen = d3.line()
 // SVG dimensions
 // const svgWidth_harlequin = 390;
 // const svgHeight_harlequin = 500;
-const svgWidth_harlequin = svgSize.width * .4;
+const svgWidth_harlequin = svgSize.width * .37;
 const svgHeight_harlequin = svgSize.height;
 
 // SVG
