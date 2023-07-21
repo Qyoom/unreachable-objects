@@ -4,8 +4,10 @@ console.log('harlequin_1_carousel.js');
 const lineGen = d3.line()
 
 // SVG dimensions
-const svgWidth_harlequin = 390;
-const svgHeight_harlequin = 500;
+// const svgWidth_harlequin = 390;
+// const svgHeight_harlequin = 500;
+const svgWidth_harlequin = svgSize.width * .4;
+const svgHeight_harlequin = svgSize.height;
 
 // SVG
 const svg_harlequin = d3.select("#harlequin")
