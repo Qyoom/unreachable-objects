@@ -4,55 +4,99 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="posts/gen_upd_pattern/AlphaPack9.css">
-  <script src="https://d3js.org/d3.v3.min.js"></script>
-  <title>Unreachable Objects | Home</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/carousel_uo.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- <script src="/d3_lib/d3_7_3.min.js"></script> -->
+  <title>Unreachable Objects | Carousel</title>
 </head>
 
 <body>
   
+  <!-- header, logo, nav -->
   <header class="flex-container navbar">
     <div class="logo">
-      <h1><a href="index.html">Unreachable Objects</a></h1>
+      <h1><a href="../../index.html">Unreachable Objects</a></h1>
       <p>A generative, algorithmic workbook</p>
     </div>
     <nav class="nav transparent">
       <div class="nav-item nav-1 transparent">
-        <a href="about_short.html">About</a>
+        <a href="../../about_short.html">About</a>
       </div>
       <div class="nav-item nav-2 transparent">
-        <a href="experiments.html">Experiments</a>
+        <a href="../../experiments.html">Experiments</a>
       </div>
       <div class="nav-item nav-3 transparent">
-        <a href="contact.html">Talk</a>
+        <a href="../../contact.html">Talk</a>
       </div>
     </nav>
   </header>
 
   <div class="main">
-    <div id="alpha-pack-9" class="visualization"></div>
-    <div class="verbiage">
-      <h2>Obscure Objects of Desire</h2>
-      <blockquote cite="https://leanpub.com/python-apprentice">
-        <p class="quotation">It’s generally unhelpful to think about the destruction of objects<span>&#8230;</span>. Better to think of objects becoming unreachable.</p>
-        <p class="attribution">Smallshire, Robert. Bingham, Austin. <a href="https://leanpub.com/python-apprentice" target="_blank" rel="noopener">The Python Apprentice</a>. Sixty-North. (Footnote, Page 220).</p>
-      </blockquote>
-      <p>In French director Luis Buñel’s 1977 film <i>That Obscure Object of Desire</i> the role of the leading female character is played by two different actresses. This move was a creative solution to the dilema the production faced after losing the first actress partway through the film’s shooting due to a “tempestuous argument.”<a class="href-decor" href="#fn1"><sup>[1]</sup></a> It’s a living example of reassigning a named reference—“Conchita” in this case—from one object (actress) to another after one has become unreachable. The film, Buñel's last, went on to reap critical aclaim and several award nominations.<a class="href-decor" href="#fn2"><sup>[2]</sup></a></p>
-      <p>The animation on this page is an adaptation of Mike Bostock's tutorial on the d3js <i>General Update Pattern</i><a class="href-decor" href="#fn3"><sup>[3]</sup></a>. It shows newly created objects flowing into the program space. On each successive iteration as new objects enter, some of the previous ones remain while others lose their relevance, and therefor their attachment to the program. These objects become unreachable and disapear. In this example, when an object with the same name (i.e. alphabetical letter) does reapear, that name has in fact been reasigned to a new object—just like in Buñel's movie.</p>
-      <p>Managing the flow of data and objects plays an important part in how d3js supports dynamic visualization. d3js is one of the programming languages I will be focusing on in this workbook.</p>
-      <p>To see more of my current efforts at learning to apply the d3js programming langauage click on the "<a class="href-decor" href="experiments.html">experimements</a>" nav button at the top of the page.</p>
-      <div class="footnotes">
-        <p id="fn1" class="footnote lite-link">[1] Wikipedia contributors. "
-          <a href="https://en.wikipedia.org/wiki/That_Obscure_Object_of_Desire#Casting" target="_blank" rel="noopener">That Obscure Object of Desire</a>." Wikipedia, The Free Encyclopedia. 1 Feb. 2022. Web. 28 Mar. 2022.</p>
-        <p id="fn2" class="footnote lite-link">[2] 
-          <a href="https://en.wikipedia.org/wiki/That_Obscure_Object_of_Desire#Responses" target="_blank" rel="noopener">Ibid, #Responses."</a></p>
-        <p id="fn3" class="footnote">[3] Mike Bostock. “<a class="href-decor" href="https://bl.ocks.org/mbostock/3808234" target="_blank" rel="noopener">General Update Pattern, III</a>” (deprecated). Updated August 5, 2020</p>
-        <p id="fn4" class="footnote">[4] “<a class="href-decor" href="https://d3js.org/" target="_blank" rel="noopener">D3js. Data-Driven Documents</a>”</p>
-      </div> <!--end footnotes-->
-    </div> <!--end verbiage-->
-  </div>
 
-  <script src="posts/gen_upd_pattern/AlphaPack9.js"></script>
+    <!-- carousel -->
+    <!-- https://www.w3schools.com/howto/howto_js_slideshow.asp -->
+    <div class="slideshow-container">
+
+      <!-- grid modern -->
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 4</div>
+        <div id="grid-modern" class="visualization"></div>
+        <div class="text light-text">Click on image to activate</div>
+      </div>
+    
+      <!-- lewit 118 drawing bw -->
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 4</div>
+        <div id="lewitt-118-bw" class="visualization"></div>
+        <div class="text dark-text">Click on image to activate</div>
+      </div>
+    
+      <!-- lewit 118 drawing color -->
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 4</div>
+        <div id="lewitt-118-color" class="visualization"></div>
+        <div class="text dark-text">Click on image to activate</div>
+      </div>
+
+      <!-- harlequin (ne path gen) -->
+      <div class="mySlides fade">
+        <div class="numbertext">4 / 4</div>
+        <div id="harlequin" class="visualization"></div>
+        <div class="text dark-text">Click on image to activate</div>
+      </div>
+    
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+    
+    </div> <!--end slideshow-container-->
+    
+    <br>
+    
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span> 
+      <span class="dot" onclick="currentSlide(2)"></span> 
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span> 
+    </div>
+
+    <!-- end carousel -->
+
+    <!-- Text -->
+    <!-- <div class="verbiage">
+      <h2>Talkin' bout my generation</h2>
+      <p>carousel_uo_1_1.html
+    </div> -->
+  </div> <!-- end main -->
+
+  <!-- scripts -->
+  <!-- <script src="carousel_example.js"></script> -->
+  <script src="/carousel/carousel_uo_1.js"></script>
+  <script src="/carousel/carousel_uo_control_1.js"></script>
+  <script src="/carousel/grid_mod_1_carousel.js"></script>
+  <script src="/carousel/lewitt_118_bw_1_carousel.js"></script>
+  <script src="/carousel/lewitt_118_color_1_carousel.js"></script>
+  <script src="/carousel/harlequin_1_carousel.js"></script>
+
 </body>
 </html>
