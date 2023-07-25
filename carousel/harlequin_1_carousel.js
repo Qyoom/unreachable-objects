@@ -16,20 +16,19 @@ function HarlequinDrawing() {
   const lineGen = d3.line()
 
   // SVG dimensions
-  // const svgWidth_harlequin = 390;
-  // const svgHeight_harlequin = 500;
-  const svgWidth_harlequin = svgSize.width * .37;
-  const svgHeight_harlequin = svgSize.height;
+  // Scale width for phone
+  const svgWidth = windowSize.width < 500 ? svgSize.width : svgSize.width * .37;
+  const svgHeight = svgSize.height;
 
   // SVG
-  const svg_harlequin = d3.select("#harlequin")
+  const svg = d3.select("#harlequin")
     .append("svg")
-    .attr("width", svgWidth_harlequin) // Not responsive
-    .attr("height", svgHeight_harlequin);
+    .attr("width", svgWidth) // Not responsive
+    .attr("height", svgHeight);
     // .attr('viewBox', `0 0 ${svgWidth} ${svgHeight}`); // appropriately responsive for small screens with portrait orientation.
 
   // Path element
-  const pathContex = svg_harlequin.append("path");
+  const pathContex = svg.append("path");
 
   function randomIntFromInterval(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -82,7 +81,7 @@ function HarlequinDrawing() {
   const pointPos = (sx, i) => {
     // 1:left, 0:right
     const side = i & 1;
-    const px = side ? Math.random() * sx : sx + ((svgWidth_harlequin - sx) * Math.random());
+    const px = side ? Math.random() * sx : sx + ((svgWidth - sx) * Math.random());
     return px;
   }
 
@@ -130,7 +129,7 @@ function HarlequinDrawing() {
   function generate() {
     // console.log('generate');
     
-    [A, B] = genEndPts(svgWidth_harlequin, svgHeight_harlequin);
+    [A, B] = genEndPts(svgWidth, svgHeight);
 
     const pathObjs = pathGenerator(A, B)(numSegmts()); // call to the orchestrator
     const pathCoords = pathObjs.map(obj => [obj.px, obj.y]); // simple [x, y] coordinates
@@ -139,7 +138,7 @@ function HarlequinDrawing() {
     d3.select('path')
       .attr('d', path);
 
-    svg_harlequin.selectAll('circle')
+    svg.selectAll('circle')
     .data(pathObjs)
     .join(
       enter => enter.append('circle'),
