@@ -19,13 +19,19 @@ function GridModDrawing() {
   const vertSpacer = 112; // 115; // 120; // approx space between horizontal lines
   const horizSpacer = 87; // 90; // approx space between vertical lines
 
-  const numVertLines = Math.floor(svgSize.width / horizSpacer);
-  const numHorizLines = Math.floor(svgSize.height / vertSpacer);
+  // Scale for phones vs full size screens
+  const numVertLines = windowSize.width < 500 ? 
+    (Math.floor(svgSize.width / horizSpacer)) * 2 : 
+    Math.floor(svgSize.width / horizSpacer);
+
+  const numHorizLines = windowSize.height < 900 ?
+  (Math.floor(svgSize.height / vertSpacer)) * 2 :
+  Math.floor(svgSize.height / vertSpacer);
+
+  const lineWidth = windowSize.width < 500 || windowSize.height < 900 ? 5 : 7;
 
   const vertSpacerAdjust = svgSize.height / numHorizLines;
   const horizSpacerAdjust = svgSize.width / numVertLines;
-
-  const lineWidth = 7; // 8;
 
   /*
   * Functions, operations
