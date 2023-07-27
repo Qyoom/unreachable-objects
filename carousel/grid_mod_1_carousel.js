@@ -16,7 +16,7 @@ function GridModDrawing() {
     height: windowSize.height * 0.82 // 0.90
   }
 
-  const vertSpacer = 125; // 112; // 115; // 120; // approx space between horizontal lines
+  const vertSpacer = 130; // 112; // 115; // 120; // 130; // approx space between horizontal lines
   const horizSpacer = 87; // 90; // approx space between vertical lines
 
   // Scale for phones vs full size screens
