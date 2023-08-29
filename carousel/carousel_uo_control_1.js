@@ -12,6 +12,9 @@ lewitt118color.genFirst118ColorDrawing();
 let harlequin = HarlequinDrawing();
 harlequin.generate();
 
+let gsapSquares = GsapSquaresDrawing();
+// gsapSquares.toggleGsapSquares();
+
 // Click handler
 // https://gomakethings.com/detecting-click-events-on-svgs-with-vanilla-js-event-delegation/
 document.addEventListener('click', function (event) {
@@ -38,5 +41,10 @@ document.addEventListener('click', function (event) {
   if(event.target.closest('#harlequin')) {
     // console.log('clicked harlequin');
     harlequin.generate();
+  }
+
+  if(event.target.closest('#gsap-squares')) {
+    // console.log('clicked gsap-squares');
+    gsapSquares.toggleGsapSquares();
   }
 }, false)
